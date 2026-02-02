@@ -57,6 +57,21 @@ export default function FinancinApp() {
     ));
   };
 
+  const setCantidadDirecta = (valor: number, nuevaCantidad: string) => {
+    const cantidad = parseInt(nuevaCantidad) || 0;
+    setSources(prev => prev.map(source => 
+      source.id === activeSourceId
+        ? {
+            ...source,
+            conteo: {
+              ...source.conteo,
+              [valor]: Math.max(0, cantidad)
+            }
+          }
+        : source
+    ));
+  };
+
   const addNewSource = () => {
     if (!newSourceName.trim()) return;
     
@@ -187,7 +202,12 @@ export default function FinancinApp() {
                 onClick={() => actualizarCantidad(valor, -1)}
                 className="w-10 h-10 bg-white rounded-xl shadow-sm text-xl"
               >-</button>
-              <span className="w-6 text-center font-bold"><p className='text-black'>{activeSource.conteo[valor]}</p></span>
+              <input
+                type="number"
+                value={activeSource.conteo[valor]}
+                onChange={(e) => setCantidadDirecta(valor, e.target.value)}
+                className="w-12 text-center font-bold bg-transparent text-black border-none outline-none [-moz-appearance:_textfield] [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none"
+              />
               <button 
                 onClick={() => actualizarCantidad(valor, 1)}
                 className="w-10 h-10 bg-blue-600 text-white rounded-xl shadow-md text-xl"
