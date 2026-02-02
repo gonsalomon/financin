@@ -31,9 +31,10 @@ export default function FinancinApp() {
   return (
     <main className="p-6 max-w-md mx-auto min-h-screen bg-slate-50">
       <h1 className="text-3xl font-black mb-8 text-blue-600">financin</h1>
+      <label className="block mb-6 text-slate-700"><i>A KISS tracker of your cash count, with LocalStorage (only local data is managed). Values for each bill are hard-coded; use your own.</i></label>
       
       <div className="bg-slate-900 p-8 rounded-[2.5rem] mb-10 text-center text-white shadow-xl">
-        <p className="text-[10px] opacity-50 uppercase font-black mb-2">Efectivo Total</p>
+        <p className="text-[10px] opacity-50 uppercase font-black mb-2">Efectivo Total|Total Cash</p>
         <div className="text-5xl font-mono">${totalGeneral.toLocaleString('es-AR')}</div>
       </div>
 
