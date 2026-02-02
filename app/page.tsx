@@ -115,13 +115,13 @@ export default function FinancinApp() {
       <label className="block mb-6 text-slate-700"><i>A KISS tracker of your cash count, with LocalStorage (only local data is managed). Values for each bill are hard-coded; use your own.</i></label>
       
       {/* Total Global de TODO */}
-      <div className="bg-blue-600 p-4 rounded-2xl mb-4 text-center text-white shadow-lg">
+      <div className="bg-blue-600 p-4 rounded-2xl mb-4 text-center text-white shadow-lg" suppressHydrationWarning>
         <p className="text-[8px] opacity-70 uppercase font-black mb-1">Total Global|Global Total</p>
         <div className="text-2xl font-mono">${totalTodoElEfectivo.toLocaleString('es-AR')}</div>
       </div>
 
       {/* Selector de Fuentes */}
-      <div className="mb-6">
+      <div className="mb-6" suppressHydrationWarning>
         <div className="flex gap-2 flex-wrap mb-2">
           {sources.map(source => (
             <div key={source.id} className="relative">
@@ -164,7 +164,7 @@ export default function FinancinApp() {
               onChange={(e) => setNewSourceName(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && addNewSource()}
               placeholder="Nombre (ej: Ahorros)"
-              className="flex-1 px-3 py-2 rounded-xl border border-slate-100 shadow-sm text-black"
+              className="flex-1 px-3 py-2 rounded-xl border border-slate-100 shadow-sm"
               autoFocus
             />
             <button
@@ -187,13 +187,13 @@ export default function FinancinApp() {
       </div>
       
       {/* Total de la Fuente Activa */}
-      <div className="bg-slate-900 p-8 rounded-[2.5rem] mb-10 text-center text-white shadow-xl">
+      <div className="bg-slate-900 p-8 rounded-[2.5rem] mb-10 text-center text-white shadow-xl" suppressHydrationWarning>
         <p className="text-[10px] opacity-50 uppercase font-black mb-2">{activeSource.name} | Efectivo Total|Total Cash</p>
         <div className="text-5xl font-mono">${totalGeneral.toLocaleString('es-AR')}</div>
       </div>
 
       {/* Contador de Denominaciones */}
-      <div className="grid gap-4">
+      <div className="grid gap-4" suppressHydrationWarning>
         {DENOMINACIONES.map((valor) => (
           <div key={valor} className="flex items-center justify-between p-4 bg-white rounded-3xl border border-slate-100 shadow-sm">
             <span className="text-2xl font-black text-slate-700">${valor.toLocaleString()}</span>
