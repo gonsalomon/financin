@@ -149,7 +149,7 @@ export default function FinancinApp() {
               onChange={(e) => setNewSourceName(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && addNewSource()}
               placeholder="Nombre (ej: Ahorros)"
-              className="flex-1 px-3 py-2 rounded-xl border border-slate-100 shadow-sm"
+              className="flex-1 px-3 py-2 rounded-xl border border-slate-100 shadow-sm text-black"
               autoFocus
             />
             <button
